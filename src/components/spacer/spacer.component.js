@@ -1,4 +1,5 @@
-import styled from "styled-components/native";
+import styled, { useTheme } from "styled-components/native";
+import React from "react";
 
 const sizeVariant = {
   small: 1,
@@ -18,12 +19,19 @@ const getVariant = (position, size, theme) => {
   const property = positionVariant[position];
   const value = theme.space[sizeIndex];
   console.log(value);
-  return `${property}:${value} `;
+  return `${property}:${value}`;
 };
 
-export const Spacer = styled.View`
-  ${({ position, size, theme }) => getVariant(position, size, theme)}
+const SpacerView = styled.View`
+  ${({ variant }) => variant}
 `;
+
+export const Spacer = ({ position, size }) => {
+  const theme = useTheme();
+  //calculating the variant ahead of time to avoid android bug
+  const variant = getVariant(position, size, theme);
+  return <SpacerView variant={variant} />;
+};
 
 Spacer.defaultProps = {
   position: "top",
