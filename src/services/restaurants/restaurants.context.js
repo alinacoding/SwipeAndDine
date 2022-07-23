@@ -7,8 +7,38 @@ import {
 export const RestaurantContext = createContext();
 
 export const RestaurantContextProvider = ({ children }) => {
+  const [restaurants, setRestaurants] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const retrieveRestaurants = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      restaurantsRequest()
+        .then(restaurantsTransform)
+        .then((results) => {
+          console.log(results);
+          setIsLoading(false);
+          setRestaurants(results);
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          setError(err);
+        });
+    }, 2000);
+  };
+  useEffect(() => {
+    retrieveRestaurants();
+  }, []);
+
   return (
-    <RestaurantContext.Provider value={{ restaurants: [1, 2, 3] }}>
+    <RestaurantContext.Provider
+      value={{
+        restaurants,
+        isLoading,
+        error,
+      }}
+    >
       {children}
     </RestaurantContext.Provider>
   );
