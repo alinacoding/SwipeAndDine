@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { Ionicons } from "@expo/vector-icons";
-
+import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
 import {
   useFonts as useOswald,
   Oswald_400Regular,
