@@ -28,6 +28,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     rating = 4,
     isClosedTemporarily = true,
   } = restaurant;
+  console.log(restaurant);
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   console.log(ratingArray);
   return (
