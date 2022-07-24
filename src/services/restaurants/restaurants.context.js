@@ -17,7 +17,6 @@ export const RestaurantContextProvider = ({ children }) => {
       restaurantsRequest()
         .then(restaurantsTransform)
         .then((results) => {
-          console.log(results);
           setIsLoading(false);
           setRestaurants(results);
         })
