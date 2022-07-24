@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/alinavoicu/.nvm/versions/node/v18.4.0/bin/node /Users/alinavoicu/.nvm/versions/node/v18.4.0/bin/yarn add camelize
+  /Users/alinavoicu/.nvm/versions/node/v18.4.0/bin/node /Users/alinavoicu/.nvm/versions/node/v18.4.0/bin/yarn add @react-navigatin/stack
 
 PATH: 
   /Users/alinavoicu/.nvm/versions/node/v18.4.0/bin:/opt/homebrew/opt/python@3.8/bin:/opt/homebrew/opt/python@3.8/bin:/Users/alinavoicu/miniforge3/bin:/Users/alinavoicu/miniforge3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
@@ -14,10 +14,17 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.npmjs.org/camelize: ETIMEDOUT
-      at Timeout._onTimeout (/Users/alinavoicu/.nvm/versions/node/v18.4.0/lib/node_modules/yarn/lib/cli.js:141550:19)
-      at listOnTimeout (node:internal/timers:564:17)
-      at process.processTimers (node:internal/timers:507:7)
+  Error: https://registry.npmjs.org/@react-navigatin%2fstack: Not found
+      at params.callback [as _callback] (/Users/alinavoicu/.nvm/versions/node/v18.4.0/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at self.callback (/Users/alinavoicu/.nvm/versions/node/v18.4.0/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:537:28)
+      at Request.<anonymous> (/Users/alinavoicu/.nvm/versions/node/v18.4.0/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:537:28)
+      at IncomingMessage.<anonymous> (/Users/alinavoicu/.nvm/versions/node/v18.4.0/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:651:28)
+      at IncomingMessage.emit (node:events:549:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
 
 npm manifest: 
   {
@@ -39,6 +46,7 @@ npm manifest:
       "@react-native-community/masked-view": "^0.1.11",
       "@react-navigation/bottom-tabs": "^6.3.2",
       "@react-navigation/native": "^6.0.11",
+      "camelize": "^1.0.0",
       "expo": "~45.0.0",
       "expo-font": "~10.1.0",
       "expo-status-bar": "~1.3.0",
