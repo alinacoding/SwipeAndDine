@@ -8,12 +8,12 @@ export const Icon = styled.Image`
 
 export const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[1]};
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
   background-color: ${(props) => props.theme.colors.bg.primary};
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 export const Address = styled.Text`
@@ -22,7 +22,7 @@ export const Address = styled.Text`
 `;
 
 export const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[1]};
 `;
 
 export const Rating = styled.View`
