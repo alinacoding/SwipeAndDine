@@ -40,8 +40,6 @@ const variants = {
   hint,
 };
 
-console.log(Object.keys(variants));
-
 export const Text = styled.Text`
   ${({ theme }) => defaulTextStyles(theme)}
   ${({ variant, theme }) => variants[variant](theme)}

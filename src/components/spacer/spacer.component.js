@@ -18,7 +18,6 @@ const getVariant = (position, size, theme) => {
   const sizeIndex = sizeVariant[size];
   const property = positionVariant[position];
   const value = theme.space[sizeIndex];
-  console.log(value);
   return `${property}:${value}`;
 };
 
