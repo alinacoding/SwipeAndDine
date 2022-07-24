@@ -5,6 +5,7 @@ import open from "../../../../assets/open";
 import { View } from "react-native";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Favorite } from "../../../components/favorites/favorite.component";
 import {
   RestaurantCardCover,
   RestaurantCard,
@@ -31,6 +32,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <RestaurantCard elevation={5}>
+      <Favorite />
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{restaurant.name}</Text>
