@@ -39,6 +39,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           </Loading>
         </LoadingContainer>
       )}
+      <Search />
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => {
