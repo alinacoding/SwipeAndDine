@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/native";
-import { restaurantsRequest } from "../services/restaurants/restaurants.service";
 import { Text } from "../components/typography/text.component";
 import { WebView } from "react-native-webview";
 import { Platform } from "react-native";
