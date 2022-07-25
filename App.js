@@ -12,6 +12,17 @@ import { RestaurantContextProvider } from "./src/services/restaurants/restaurant
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
 import { Navigation } from "./src/infrastructure/navigation";
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDx4jyJdl01bm6Z9PJTv18j0jaPcSdAa7I",
+  authDomain: "swipeanddine-3c115.firebaseapp.com",
+  projectId: "swipeanddine-3c115",
+  storageBucket: "swipeanddine-3c115.appspot.com",
+  messagingSenderId: "952811469935",
+  appId: "1:952811469935:web:a2958da6b5d09d3a29219a",
+};
+initializeApp(firebaseConfig);
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
