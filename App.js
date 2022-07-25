@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { ThemeProvider } from "styled-components/native";
@@ -12,7 +12,8 @@ import { RestaurantContextProvider } from "./src/services/restaurants/restaurant
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
 import { Navigation } from "./src/infrastructure/navigation";
-import { initializeApp } from "firebase/app";
+
+import * as firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDx4jyJdl01bm6Z9PJTv18j0jaPcSdAa7I",
@@ -22,9 +23,26 @@ const firebaseConfig = {
   messagingSenderId: "952811469935",
   appId: "1:952811469935:web:a2958da6b5d09d3a29219a",
 };
-initializeApp(firebaseConfig);
-
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+console.log(firebaseConfig);
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword("a.voicu24@gmail.com", "test123")
+        .then((user) => {
+          setIsAuthenticated(true);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }, 2000);
+  }, []);
+
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
@@ -36,6 +54,7 @@ export default function App() {
   if (!oswaldLoaded || !latoLoaded) {
     return null;
   }
+  if (!isAuthenticated) return null;
 
   return (
     <>
