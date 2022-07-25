@@ -12,8 +12,8 @@ import { RestaurantContextProvider } from "./src/services/restaurants/restaurant
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
 import { Navigation } from "./src/infrastructure/navigation";
-
 import * as firebase from "firebase";
+import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDx4jyJdl01bm6Z9PJTv18j0jaPcSdAa7I",
@@ -54,18 +54,22 @@ export default function App() {
   if (!oswaldLoaded || !latoLoaded) {
     return null;
   }
-  if (!isAuthenticated) return null;
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FavoritesContextProvider>
-          <LocationContextProvider>
-            <RestaurantContextProvider>
-              <Navigation />
-            </RestaurantContextProvider>
-          </LocationContextProvider>
-        </FavoritesContextProvider>
+        <AuthenticationContextProvider>
+          <FavoritesContextProvider>
+            <LocationContextProvider>
+              <RestaurantContextProvider>
+                <Navigation />
+              </RestaurantContextProvider>
+            </LocationContextProvider>
+          </FavoritesContextProvider>
+        </AuthenticationContextProvider>
         <ExpoStatusBar style="auto" />
       </ThemeProvider>
     </>
