@@ -9,6 +9,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
+  //check if there is already a session open
   firebase.auth().onAuthStateChanged((usr) => {
     if (usr) {
       setUser(usr);

@@ -7,7 +7,9 @@ import { SafeArea } from "../../components/utility/safe-area.component";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
 import { SettingsScreen } from "../../features/settings/screens/components/settings.screen";
-
+import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { FavoritesContextProvider } from "../../services/favorites/favorites.context";
 const TAB_ICON = {
   Restaurants: "md-restaurant",
   Maps: "md-map",
@@ -32,15 +34,21 @@ const Map = () => (
 );
 
 export const AppNavigator = () => (
-  <Tab.Navigator
-    screenOptions={createScreenOptions}
-    tabBarOptions={{
-      activeTintColor: "tomato",
-      inactiveTintColor: "gray",
-    }}
-  >
-    <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-    <Tab.Screen name="Maps" component={MapScreen} />
-    <Tab.Screen name="Settings" component={SettingsScreen} />
-  </Tab.Navigator>
+  <FavoritesContextProvider>
+    <LocationContextProvider>
+      <RestaurantContextProvider>
+        <Tab.Navigator
+          screenOptions={createScreenOptions}
+          tabBarOptions={{
+            activeTintColor: "tomato",
+            inactiveTintColor: "gray",
+          }}
+        >
+          <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+          <Tab.Screen name="Maps" component={MapScreen} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
+      </RestaurantContextProvider>
+    </LocationContextProvider>
+  </FavoritesContextProvider>
 );
