@@ -4,7 +4,6 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
-import { Text } from "react-native";
 import { RestaurantDetailScreen } from "../../features/restaurants/components/restaurant-detail.screen";
 
 const RestaurantStack = createStackNavigator();

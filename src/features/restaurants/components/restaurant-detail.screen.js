@@ -12,6 +12,7 @@ export const RestaurantDetailScreen = ({ route }) => {
   const [drinksExpanded, setDrinksExpanded] = useState(false);
 
   const { restaurant } = route.params;
+
   return (
     <SafeArea>
       <ScrollView>

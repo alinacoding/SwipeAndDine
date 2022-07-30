@@ -1,15 +1,14 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { Text } from "react-native";
 import { SafeArea } from "../../components/utility/safe-area.component";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
-import { SettingsScreen } from "../../features/settings/screens/components/settings.screen";
 import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { FavoritesContextProvider } from "../../services/favorites/favorites.context";
+import { SettingsNavigator } from "./settings.navigator";
+
 const TAB_ICON = {
   Restaurants: "md-restaurant",
   Maps: "md-map",
@@ -46,7 +45,7 @@ export const AppNavigator = () => (
         >
           <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
           <Tab.Screen name="Maps" component={MapScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
+          <Tab.Screen name="Settings" component={SettingsNavigator} />
         </Tab.Navigator>
       </RestaurantContextProvider>
     </LocationContextProvider>

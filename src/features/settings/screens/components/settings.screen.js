@@ -7,6 +7,7 @@ import { Text } from "../../../../components/typography/text.component";
 import { SafeArea } from "../../../../components/utility/safe-area.component";
 import { colors } from "../../../../infrastructure/theme/colors";
 import { AuthenticationContext } from "../../../../services/authentication/authentication.context";
+
 const TransparentSafeArea = styled(SafeArea)`
   background-color: transparent;
 `;
@@ -43,30 +44,14 @@ export const SettingsScreen = ({ navigation }) => {
 
         <List.Section>
           <SettingsItem
-            title="Favourites"
-            description="View your favourites"
+            title="Favorites"
+            description="View your favorites"
             left={(props) => (
               <List.Icon {...props} color={colors.ui.error} icon="heart" />
             )}
-            onPress={() => navigation.navigate("Favourites")}
-          />
-          <SettingsItem
-            title="Payment"
-            left={(props) => (
-              <List.Icon {...props} color={colors.ui.secondary} icon="cart" />
-            )}
-            onPress={() => null}
-          />
-          <SettingsItem
-            title="Past Orders"
-            left={(props) => (
-              <List.Icon
-                {...props}
-                color={colors.ui.secondary}
-                icon="history"
-              />
-            )}
-            onPress={() => null}
+            onPress={() => {
+              navigation.navigate("Favorites");
+            }}
           />
           <SettingsItem
             title="Logout"

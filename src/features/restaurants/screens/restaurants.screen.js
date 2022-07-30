@@ -14,7 +14,6 @@ const RestaurantList = styled.FlatList.attrs({
     padding: 16,
   },
 })``;
-
 const Loading = styled(ActivityIndicator)`
   margin-left=-25px;
 `;
